@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schulplaner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-page" class="page active">
+        <h2>Anmelden</h2>
+        <form id="login-form" onsubmit="login(event)">
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" required>
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Anmelden</button>
+        </form>
+        <p id="login-error" style="color: red; display: none;">Falscher Benutzername oder Passwort</p>
+    </div>
+    <div id="main-content" style="display: none;">
+        <header>
+            <h1>Schulplaner</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('timetable')">Stundenplan</a></li>
+                    <li><a href="#" onclick="showPage('assignments')">Aufgaben</a></li>
+                    <li><a href="#" onclick="showPage('notes')">Notizen</a></li>
+                    <li><a href="#" onclick="showPage('vertretungsplan')">Vertretungsplan</a></li>
+                    <li><a href="#" onclick="showPage('mein-stundenplan')">Mein Stundenplan</a></li>
+                    <li><a href="#" onclick="showPage('news')">News</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="home" class="page">
+                <h2>Willkommen zum Schulplaner</h2>
+                <p>Wählen Sie eine Kategorie aus dem Menü aus, um zu beginnen.</p>
+            </section>
+            <section id="timetable" class="page" style="display:none;">
+                <h2>Stundenplan</h2>
+                <p>Hier können Sie Ihren Stundenplan sehen und bearbeiten.</p>
+                <!-- Stundenplan-Inhalte hier -->
+            </section>
+            <section id="assignments" class="page" style="display:none;">
+                <h2>Aufgaben</h2>
+                <p>Hier können Sie Ihre Aufgaben verwalten.</p>
+                <!-- Aufgaben-Inhalte hier -->
+            </section>
+            <section id="notes" class="page" style="display:none;">
+                <h2>Notizen</h2>
+                <p>Hier können Sie Ihre Notizen speichern.</p>
+                <!-- Notizen-Inhalte hier -->
+            </section>
+            <section id="vertretungsplan" class="page" style="display:none;">
+                <h2>Vertretungsplan</h2>
+                <p>Hier können Sie den Vertretungsplan einsehen.</p>
+                <!-- Vertretungsplan-Inhalte hier -->
+            </section>
+            <section id="mein-stundenplan" class="page" style="display:none;">
+                <h2>Mein Stundenplan</h2>
+                <p>Hier können Sie Ihren persönlichen Stundenplan sehen.</p>
+                <!-- Persönlicher Stundenplan-Inhalte hier -->
+            </section>
+            <section id="news" class="page" style="display:none;">
+                <h2>News</h2>
+                <p>Hier finden Sie alle Neuigkeiten.</p>
+                <!-- News-Inhalte hier -->
+            </section>
+        </main>
+    </div>
+    <script>
+        function login(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('login-error');
+
+            if (username === 'test' && password === 'test') {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                errorElement.style.display = 'block';
+            }
+        }
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
