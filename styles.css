@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #808080; /* Grauer Hintergrund */
 }
 
 header {
@@ -79,7 +80,7 @@ nav ul li a:hover::after {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #555;
+    background-color: #f0f0f0;
 }
 
 #login-form {
