@@ -7,7 +7,7 @@ body {
 
 header {
     background-color: #4CAF50;
-    color: grey;
+    color: white;
     padding: 1rem;
     text-align: center;
 }
@@ -79,7 +79,7 @@ nav ul li a:hover::after {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #555;
 }
 
 #login-form {
